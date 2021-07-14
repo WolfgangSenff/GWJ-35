@@ -16,11 +16,22 @@ var _screen_size
 
 onready var _sprite = $Sprite
 onready var _anim = $AnimationPlayer
+onready var _all_casts = [$CastRight, $CastLeft, $CastDown]
 
 func _ready() -> void:
     _screen_size = get_viewport_rect().size
 
+func _handle_raycasts() -> void:
+    if collision_mask == 0:
+        for cast in _all_casts:
+            if cast.is_colliding():                
+                collision_mask = cast.get_collider().collision_layer
+                break
+            
+
 func _physics_process(delta: float) -> void:
+    _handle_raycasts()
+    
     var h_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
     var on_wall = is_on_wall()
     var on_wall_and_can_kick = on_wall and _kick_count < MaxWallKicks
@@ -35,6 +46,7 @@ func _physics_process(delta: float) -> void:
             _velocity.y = JumpStrength
         elif not on_wall and on_floor:
             _velocity.y = JumpStrength
+        collision_mask = 0
     
     var h_input_not_zero = not is_zero_approx(h_input)
     
@@ -60,7 +72,6 @@ func disable_physics(is_forward = true) -> void:
     else:
         _sprite.material.set_shader_param("direction", Vector2(_velocity.x, 0).normalized())
     _anim.play("Forward" if is_forward else "Backward")
-        
     
 func enable_physics() -> void:
     yield(get_tree(), "idle_frame")
