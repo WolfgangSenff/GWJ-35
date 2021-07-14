@@ -60,11 +60,11 @@ points = PoolVector2Array( 24, 15, 0, 15, 0, 4, 24, 4 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 0/shape = SubResource( 3 )
-0/shape_one_way = false
+0/shape_one_way = true
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 1 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -82,13 +82,13 @@ points = PoolVector2Array( 24, 15, 0, 15, 0, 4, 24, 4 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 0 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 0 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -135,11 +135,11 @@ points = PoolVector2Array( 24, 15, 0, 15, 0, 4, 24, 4 )
 5/shape_offset = Vector2( 0, 0 )
 5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 5/shape = SubResource( 13 )
-5/shape_one_way = false
+5/shape_one_way = true
 5/shape_one_way_margin = 1.0
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 13 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -156,11 +156,11 @@ points = PoolVector2Array( 24, 15, 0, 15, 0, 4, 24, 4 )
 6/shape_offset = Vector2( 0, 0 )
 6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 6/shape = SubResource( 14 )
-6/shape_one_way = false
+6/shape_one_way = true
 6/shape_one_way_margin = 1.0
 6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 14 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -195,7 +195,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("TileMap:visible")
+tracks/2/path = NodePath("TweenerLayer1:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -235,7 +235,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0.294118 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("TileMap:self_modulate")
+tracks/2/path = NodePath("TweenerLayer1:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -247,7 +247,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("TileMap:visible")
+tracks/3/path = NodePath("TweenerLayer1:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -264,9 +264,24 @@ tracks/3/keys = {
 ]]
 script = ExtResource( 2 )
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TweenerLayer1" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 24, 24 )
+collision_layer = 131072
+collision_mask = 0
+format = 1
+
+[node name="TweenerLayer2" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 24, 24 )
+collision_layer = 262144
+collision_mask = 0
+format = 1
+
+[node name="TweenerLayer3" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 24, 24 )
+collision_layer = 524288
 collision_mask = 0
 format = 1
 
@@ -282,3 +297,5 @@ anims/DisappearForward = SubResource( 16 )
 anims/Expand = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[connection signal="tween_step" from="Tween" to="." method="_on_Tween_tween_step"]

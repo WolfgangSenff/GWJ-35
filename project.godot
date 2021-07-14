@@ -96,6 +96,9 @@ jump={
 2d_physics/layer_2="Transfer"
 2d_physics/layer_3="Player"
 2d_physics/layer_4="Trigger"
+2d_physics/layer_18="TweenerLayer1"
+2d_physics/layer_19="TweenerLayer2"
+2d_physics/layer_20="TweenerLayer3"
 
 [physics]
 
