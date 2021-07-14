@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/lumiere_light_mask.png" type="Texture" id=1]
+[ext_resource path="res://assets/lumiere.png" type="Texture" id=2]
+
+[node name="Lumiere" type="Node2D"]
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 1 )
+texture_scale = 3.0
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.392157, 0.392157, 0.392157, 1 )
+texture = ExtResource( 2 )

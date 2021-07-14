@@ -1,0 +1,104 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/MainScreen.gd" type="Script" id=1]
+[ext_resource path="res://assets/default_theme.tres" type="Theme" id=2]
+[ext_resource path="res://scenes/Lumiere.tscn" type="PackedScene" id=3]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="MainContainer"]
+margin_left = 128.0
+margin_top = 23.0
+margin_right = 192.0
+margin_bottom = 54.0
+size_flags_horizontal = 6
+text = "START"
+
+[node name="OptionsButton" type="Button" parent="MainContainer"]
+margin_left = 121.0
+margin_top = 74.0
+margin_right = 198.0
+margin_bottom = 105.0
+size_flags_horizontal = 6
+text = "OPTIONS"
+
+[node name="CreditsButton" type="Button" parent="MainContainer"]
+margin_left = 123.0
+margin_top = 125.0
+margin_right = 197.0
+margin_bottom = 156.0
+size_flags_horizontal = 6
+text = "CREDITS"
+
+[node name="OptionsContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 4.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ThingButton" type="Button" parent="OptionsContainer"]
+margin_left = 127.0
+margin_top = 15.0
+margin_right = 193.0
+margin_bottom = 46.0
+size_flags_horizontal = 6
+text = "THING1"
+
+[node name="ThingButton2" type="Button" parent="OptionsContainer"]
+margin_left = 127.0
+margin_top = 56.0
+margin_right = 193.0
+margin_bottom = 87.0
+size_flags_horizontal = 6
+text = "THING2"
+
+[node name="ThingButton3" type="Button" parent="OptionsContainer"]
+margin_left = 126.0
+margin_top = 97.0
+margin_right = 193.0
+margin_bottom = 128.0
+size_flags_horizontal = 6
+text = "THING3"
+
+[node name="BackButton" type="Button" parent="OptionsContainer"]
+margin_left = 134.0
+margin_top = 138.0
+margin_right = 186.0
+margin_bottom = 169.0
+size_flags_horizontal = 6
+text = "BACK"
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Lumiere" parent="." instance=ExtResource( 3 )]
+
+[connection signal="pressed" from="MainContainer/StartButton" to="." method="_on_StartButton_pressed" flags=7]
+[connection signal="pressed" from="MainContainer/OptionsButton" to="." method="_on_OptionsButton_pressed" flags=3]
+[connection signal="pressed" from="OptionsContainer/BackButton" to="." method="_on_BackButton_pressed" flags=3]
+[connection signal="tween_step" from="Tween" to="." method="_on_Tween_tween_step"]
