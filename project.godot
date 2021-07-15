@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "BaseThemeableControl",
+"language": "GDScript",
+"path": "res://scenes/BaseThemeableControl.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://scenes/Player.gd"
 } ]
 _global_script_class_icons={
+"BaseThemeableControl": "",
 "Player": ""
 }
 
@@ -23,6 +29,10 @@ _global_script_class_icons={
 config/name="GWJ35"
 run/main_scene="res://scenes/MainScreen.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+ControlSettings="*res://ControlSettings.tscn"
 
 [display]
 

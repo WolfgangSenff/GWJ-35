@@ -24,8 +24,10 @@ func _ready() -> void:
 func _handle_raycasts() -> void:
     if collision_mask == 0:
         for cast in _all_casts:
-            if cast.is_colliding():                
-                collision_mask = cast.get_collider().collision_layer
+            if cast.is_colliding():
+                var collider = cast.get_collider()
+                collision_mask = collider.collision_layer
+                z_index = collider.z_index + 1
                 break
             
 
