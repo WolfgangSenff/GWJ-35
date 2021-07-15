@@ -10,6 +10,7 @@
 script = ExtResource( 3 )
 
 [node name="LevelBase3" parent="." instance=ExtResource( 1 )]
+visible = false
 z_index = -6
 
 [node name="TweenerLayer1" parent="LevelBase3" index="0"]
@@ -22,6 +23,7 @@ tile_data = PoolIntArray( 262141, 1073741829, 0, 262142, 1073741829, 0, 262143, 
 tile_data = PoolIntArray( 393218, 0, 0, 393219, 0, 1, 393220, 0, 2, 393221, 6, 0, 393222, 6, 0, 393223, 6, 0, 393224, 0, 3, 393225, 0, 4, 393226, 0, 5, 458754, 0, 1, 458755, 0, 65537, 458761, 0, 65540, 458762, 0, 4 )
 
 [node name="LevelBase2" parent="." instance=ExtResource( 1 )]
+visible = false
 z_index = -3
 
 [node name="TweenerLayer1" parent="LevelBase2" index="0"]
