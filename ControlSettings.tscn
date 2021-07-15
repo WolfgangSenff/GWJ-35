@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/pixel_theme.tres" type="Theme" id=1]
+[ext_resource path="res://ControlSettings.gd" type="Script" id=2]
+[ext_resource path="res://assets/default_theme.tres" type="Theme" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "UpdateFontDyslexic"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:theme")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ), ExtResource( 3 ) ]
+}
+
+[node name="ControlSettings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/UpdateFontDyslexic = SubResource( 1 )

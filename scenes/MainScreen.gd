@@ -1,11 +1,10 @@
-extends Control
+extends BaseThemeableControl
 
 onready var _tween = $Tween
 onready var _current_screen = $MainContainer
 onready var _lumiere = $Lumiere
 
 const MainScreenX = 320
-
 
 func _on_StartButton_pressed() -> void:
     get_tree().change_scene("res://scenes/Game.tscn")

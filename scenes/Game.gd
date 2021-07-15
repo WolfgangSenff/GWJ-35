@@ -3,11 +3,11 @@ extends Node2D
 const TransferTime = 0.4
 const TransferSpeed = 1.0
 
-onready var _current_layer = $LevelBase4
+onready var _current_layer = $LevelBase3
 onready var _player = $Player
 onready var _lumiere = $Lumiere
 
-var _current_layer_index = 3
+var _current_layer_index = 2
 var _all_levels
 var _level_size
 var _transferring = false
