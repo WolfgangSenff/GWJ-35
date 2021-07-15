@@ -59,7 +59,7 @@ func reset_levels() -> void:
         elif _current_layer_index == current_index + 1:
             level.visible = true
             level.disable_physics()
-            level.set_background_opacity(.5)
+            level.set_background_opacity(.7)
             level.set_scale(Vector2(.9, .9))
         elif _current_layer_index < current_index:
             level.disable_physics()
@@ -69,7 +69,7 @@ func reset_levels() -> void:
         else:
             level.visible = true
             level.disable_physics()
-            level.set_background_opacity(.8)
+            level.set_background_opacity(.9)
             level.set_scale(Vector2(.7, .7))
         
         current_index += 1
