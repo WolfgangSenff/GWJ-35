@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/player.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.gd" type="Script" id=2]
@@ -9,7 +9,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 7 )
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6, 4 )
+
+[sub_resource type="Shader" id=3]
 code = "/*
 Shader from Godot Shaders - the free shader library.
 godotshaders.com/shader/teleport-effect
@@ -82,21 +85,21 @@ void fragment()
 	COLOR = tex;
 }"
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
 shader_param/progress = 0.0
 shader_param/noise_density = 0.0
 shader_param/beam_size = 0.15
 shader_param/color = Color( 0.541176, 0.690196, 0.376471, 1 )
 shader_param/direction = Vector2( 1, 0 )
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.521053 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=6]
 _data = [ Vector2( 0.0121951, 0.999742 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.562469 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material:shader_param/progress")
 tracks/0/interp = 1
@@ -122,7 +125,7 @@ tracks/1/keys = {
 "values": [ Color( 0.705882, 0.321569, 0.321569, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.6
 step = 0.01
 tracks/0/type = "value"
@@ -150,7 +153,7 @@ tracks/1/keys = {
 "values": [ Color( 0.541176, 0.690196, 0.376471, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -166,7 +169,7 @@ tracks/0/keys = {
 "values": [ 13 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -182,7 +185,7 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -197,7 +200,7 @@ tracks/0/keys = {
 "values": [ 24, 25, 26, 27 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -212,7 +215,7 @@ tracks/0/keys = {
 "values": [ 16, 17, 18, 19 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -227,7 +230,7 @@ tracks/0/keys = {
 "values": [ 14, 15, 24, 25, 26, 27 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -240,22 +243,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 6, 7, 16, 17, 18, 19 ]
-}
-
-[sub_resource type="Animation" id=14]
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 8, 9, 10, 11 ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -271,10 +258,26 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 8, 9, 10, 11 ]
 }
 
 [sub_resource type="Animation" id=16]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=17]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -338,7 +341,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -402,7 +405,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=19]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -417,7 +420,7 @@ tracks/0/keys = {
 "values": [ 29 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=20]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -432,7 +435,7 @@ tracks/0/keys = {
 "values": [ 21 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=21]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -472,7 +475,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=22]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -514,15 +517,19 @@ tracks/2/keys = {
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 4
-collision_mask = 131072
+collision_mask = 131080
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
 shape = SubResource( 1 )
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -13 )
+shape = SubResource( 2 )
+
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 3 )
+material = SubResource( 4 )
 z_index = 1
 texture = ExtResource( 1 )
 hframes = 8
@@ -543,7 +550,7 @@ direction = Vector2( 0, -1 )
 spread = 180.0
 gravity = Vector2( 0, -30 )
 scale_amount_random = 1.0
-scale_amount_curve = SubResource( 4 )
+scale_amount_curve = SubResource( 5 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -562,31 +569,31 @@ direction = Vector2( 0, -1 )
 spread = 180.0
 gravity = Vector2( 0, -30 )
 scale_amount_random = 1.0
-scale_amount_curve = SubResource( 5 )
+scale_amount_curve = SubResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Backward = SubResource( 6 )
-anims/Forward = SubResource( 7 )
+anims/Backward = SubResource( 7 )
+anims/Forward = SubResource( 8 )
 
 [node name="MovementAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "IdleRight"
-anims/IdleLeft = SubResource( 8 )
-anims/IdleRight = SubResource( 9 )
-anims/JumpLeft = SubResource( 10 )
-anims/JumpRight = SubResource( 11 )
-anims/LedgeGrabLeft = SubResource( 12 )
-anims/LedgeGrabRight = SubResource( 13 )
-anims/RunLeft = SubResource( 14 )
-anims/RunRight = SubResource( 15 )
-anims/SlideLeft = SubResource( 16 )
-anims/SlideRight = SubResource( 17 )
-anims/WallKickLeft = SubResource( 18 )
-anims/WallKickRight = SubResource( 19 )
-anims/WallSlideLeft = SubResource( 20 )
-anims/WallSlideRight = SubResource( 21 )
+anims/IdleLeft = SubResource( 9 )
+anims/IdleRight = SubResource( 10 )
+anims/JumpLeft = SubResource( 11 )
+anims/JumpRight = SubResource( 12 )
+anims/LedgeGrabLeft = SubResource( 13 )
+anims/LedgeGrabRight = SubResource( 14 )
+anims/RunLeft = SubResource( 15 )
+anims/RunRight = SubResource( 16 )
+anims/SlideLeft = SubResource( 17 )
+anims/SlideRight = SubResource( 18 )
+anims/WallKickLeft = SubResource( 19 )
+anims/WallKickRight = SubResource( 20 )
+anims/WallSlideLeft = SubResource( 21 )
+anims/WallSlideRight = SubResource( 22 )
 
 [node name="LedgeGrabCast" type="RayCast2D" parent="."]
-position = Vector2( 0, -10 )
+position = Vector2( 0, -8 )
 enabled = true
 cast_to = Vector2( -8, 0 )
 collision_mask = 131072
