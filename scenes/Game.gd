@@ -16,12 +16,12 @@ var _transferring
 var _current_transfer_time = 0
 
 func _ready() -> void:
-	_all_levels = get_tree().get_nodes_in_group("Level")
-	reset_levels()
-	_level_size = _all_levels.size()
+    _all_levels = get_tree().get_nodes_in_group("Level")
+    reset_levels()
+    _level_size = _all_levels.size()
 
 func _process(delta: float) -> void:
-	_lumiere.global_position = get_global_mouse_position()
+    _lumiere.global_position = get_global_mouse_position()
 
 func _physics_process(delta: float) -> void:
     if not _transferring:
@@ -52,27 +52,27 @@ func _physics_process(delta: float) -> void:
             _player.enable_physics()
 
 func reset_levels() -> void:
-	var current_index = 0
-	for level in _all_levels:
-		if _current_layer_index == current_index:
-			level.visible = true
-			level.enable_physics()
-			level.set_background_opacity(0)
-			level.set_scale(Vector2(1.0, 1.0))
-		elif _current_layer_index == current_index + 1:
-			level.visible = true
-			level.disable_physics()
-			level.set_background_opacity(.7)
-			level.set_scale(Vector2(.9, .9))
-		elif _current_layer_index < current_index:
-			level.disable_physics()
-			level.set_scale(Vector2(1.4, 1.4))
-			yield(get_tree().create_timer(0.2), "timeout")
-			level.visible = false
-		else:
-			level.visible = true
-			level.disable_physics()
-			level.set_background_opacity(.9)
-			level.set_scale(Vector2(.7, .7))
-		
-		current_index += 1
+    var current_index = 0
+    for level in _all_levels:
+        if _current_layer_index == current_index:
+            level.visible = true
+            level.enable_physics()
+            level.set_background_opacity(0)
+            level.set_scale(Vector2(1.0, 1.0))
+        elif _current_layer_index == current_index + 1:
+            level.visible = true
+            level.disable_physics()
+            level.set_background_opacity(.7)
+            level.set_scale(Vector2(.9, .9))
+        elif _current_layer_index < current_index:
+            level.disable_physics()
+            level.set_scale(Vector2(1.4, 1.4))
+            yield(get_tree().create_timer(0.2), "timeout")
+            level.visible = false
+        else:
+            level.visible = true
+            level.disable_physics()
+            level.set_background_opacity(.9)
+            level.set_scale(Vector2(.7, .7))
+        
+        current_index += 1

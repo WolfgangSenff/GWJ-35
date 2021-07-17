@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lumiere.png-29bc60c34d1736022efcb7f9ac644b89.stex"
+path="res://.import/lumiere.png-c4bdcf87b33b0b176786ccdc24ce8f41.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Lumiere.png"
-dest_files=[ "res://.import/Lumiere.png-29bc60c34d1736022efcb7f9ac644b89.stex" ]
+source_file="res://assets/lumiere.png"
+dest_files=[ "res://.import/lumiere.png-c4bdcf87b33b0b176786ccdc24ce8f41.stex" ]
 
 [params]
 

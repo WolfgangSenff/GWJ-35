@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/particles/slide_particles.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3, 7 )
+extents = Vector2( 4, 7 )
 
 [sub_resource type="Shader" id=2]
 code = "/*
@@ -213,7 +213,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=12]
-length = 0.6
+length = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -228,7 +228,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=13]
-length = 0.6
+length = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -527,7 +527,7 @@ z_index = 1
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 4
-frame = 20
+frame = 16
 
 [node name="SlideParticlesLeft" type="CPUParticles2D" parent="Sprite"]
 show_behind_parent = true
@@ -586,13 +586,13 @@ anims/WallSlideLeft = SubResource( 20 )
 anims/WallSlideRight = SubResource( 21 )
 
 [node name="LedgeGrabCast" type="RayCast2D" parent="."]
-position = Vector2( 0, -3 )
+position = Vector2( 0, -10 )
 enabled = true
 cast_to = Vector2( -8, 0 )
 collision_mask = 131072
 
 [node name="AboveLedgeCast" type="RayCast2D" parent="."]
-position = Vector2( 0, -15 )
+position = Vector2( 0, 5 )
 enabled = true
 cast_to = Vector2( -8, 0 )
 collision_mask = 131072
