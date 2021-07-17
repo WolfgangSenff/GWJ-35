@@ -5,8 +5,8 @@
 [ext_resource path="res://scenes/Game.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Lumiere.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/BaseThemeableControl.gd" type="Script" id=5]
-[ext_resource path="res://assets/sfx/Character - Teleport into screen 01.wav" type="AudioStream" id=6]
-[ext_resource path="res://assets/sfx/Character - Teleport back from screen 02.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/Teleport_Front.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sfx/Teleport_Back.wav" type="AudioStream" id=7]
 [ext_resource path="res://scenes/Sfx.gd" type="Script" id=8]
 [ext_resource path="res://assets/relic_platform.png" type="Texture" id=9]
 [ext_resource path="res://scenes/PowerUp.tscn" type="PackedScene" id=10]
@@ -32,16 +32,19 @@ tile_data = PoolIntArray( -65522, 0, 327688, -65521, 0, 327689, 1, 0, 327680, 2,
 position = Vector2( 0, 80 )
 tile_data = PoolIntArray( 65537, 0, 65537, 65538, 0, 65538, 65539, 0, 65539, 65540, 0, 65540, 65541, 0, 65540, 65542, 0, 65541, 65543, 0, 65541, 65544, 0, 65541, 65545, 0, 65542, 65546, 0, 65543, 65547, 0, 65544, 131072, 0, 131072, 131073, 0, 131073, 131074, 0, 131074, 131075, 0, 131075, 131081, 0, 131078, 131082, 0, 131079, 131083, 0, 131080, 131084, 0, 131081, 196608, 0, 196608, 196609, 0, 196609, 196610, 0, 196610, 196611, 0, 3, 196612, 0, 4, 196613, 0, 5, 196618, 0, 196615, 196619, 0, 196616, 196620, 0, 196617, 196621, 0, 65540, 196622, 0, 65540, 196623, 0, 65540, 196624, 0, 65540, 196625, 0, 65540, 196626, 0, 65540, 196627, 0, 65540, 327674, 5, 0, 327675, 5, 0, 327676, 5, 0, 327677, 5, 0, 327678, 5, 0, 327679, 5, 0, 262144, 0, 65536, 262151, 5, 0, 262152, 5, 0, 262153, 5, 0, 262154, 5, 0, 262155, 5, 0, 262156, 5, 0, 262157, 5, 0, 262158, 5, 0, 262159, 5, 0 )
 
-[node name="Sprite" parent="LevelBase" index="1"]
-self_modulate = Color( 1, 1, 1, 0.294118 )
-position = Vector2( 152, 88 )
+[node name="PowerUp" parent="LevelBase" instance=ExtResource( 10 )]
+position = Vector2( 104.383, 88.3685 )
+monitoring = true
+collision_mask = 0
 
-[node name="Sprite2" type="Sprite" parent="LevelBase"]
-position = Vector2( 104, 104 )
+[node name="PedestalSprite" type="Sprite" parent="LevelBase/PowerUp"]
+show_behind_parent = true
+position = Vector2( -0.383415, 15.6315 )
 texture = ExtResource( 9 )
 
-[node name="PowerUp" parent="LevelBase" instance=ExtResource( 10 )]
-position = Vector2( -0.353951, 7.19704 )
+[node name="Sprite" parent="LevelBase" index="2"]
+self_modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 152, 88 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
@@ -58,10 +61,12 @@ script = ExtResource( 8 )
 [node name="TeleportForwardSound" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 6 )
 volume_db = -15.0
+pitch_scale = 2.0
 
 [node name="TeleportBackwardSound" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 7 )
 volume_db = -15.0
+pitch_scale = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -74,6 +79,9 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[connection signal="body_entered" from="LevelBase/PowerUp" to="LevelBase/PowerUp" method="_on_PowerUp_body_entered" flags=7]
+[connection signal="gauntlets_unlocked" from="LevelBase/PowerUp" to="." method="_on_PowerUp_gauntlets_unlocked" flags=7]
 
 [editable path="LevelBase3"]
 [editable path="LevelBase2"]

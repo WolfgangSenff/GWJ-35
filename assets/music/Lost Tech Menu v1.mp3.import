@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Lost Tech Menu v1.mp3-0dd3d576d0d848c08a4c5414d863e6e3.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Lost Tech Menu v1.mp3"
+dest_files=[ "res://.import/Lost Tech Menu v1.mp3-0dd3d576d0d848c08a4c5414d863e6e3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -6,13 +6,16 @@ onready var _lumiere = $Lumiere
 
 const MainScreenX = 320
 
+func _ready() -> void:
+    ControlSettings.switch_to_menu()
+
 func _on_StartButton_pressed() -> void:
-	get_tree().change_scene("res://scenes/Game.tscn")
+    ControlSettings.switch_to_game()
+    get_tree().change_scene("res://scenes/Game.tscn")
 
 func _on_OptionsButton_pressed() -> void:
-	yield(move_to($OptionsContainer), "completed")
-	
-	
+    yield(move_to($OptionsContainer), "completed")
+    
 func _process(delta: float) -> void:
 	_lumiere.global_position = get_global_mouse_position()
 	
