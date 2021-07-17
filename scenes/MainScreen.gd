@@ -41,3 +41,11 @@ func _on_BackButton_pressed() -> void:
 func _on_Tween_tween_step(object: Object, key: NodePath, elapsed: float, value) -> void:
     if value is Vector2:
         object.rect_position = Vector2(160.0, 98.0) * (1 - value.x)
+
+
+func _on_SfxVolumeSlider_value_changed(value: float) -> void:
+    ControlSettings.sfx_volume = value
+
+
+func _on_MusicVolumeSlider_value_changed(value: float) -> void:
+    ControlSettings.adjust_music_volume(value)

@@ -5,7 +5,7 @@ const Acceleration = 180
 const Gravity = 550
 const Friction = 250
 const MaxSpeed = 120
-const MaxWallKicks = 1
+const MaxWallKicks = 5
 const JumpStrength = -190
 const WindResistance = 50
 
@@ -13,15 +13,20 @@ var _kick_count = 0
 var _velocity = Vector2.ZERO
 var _previous_direction = Vector2.RIGHT
 var _screen_size
+var _was_in_air = true
 var _last_animation = "IdleLeft"
 
 onready var _sprite = $Sprite
 onready var _anim = $AnimationPlayer
 onready var _move_anim = $MovementAnimationPlayer
-onready var _all_casts = [$CastRight, $CastLeft, $CastDown]
+onready var _ledge_grab_cast = $LedgeGrabCast
+onready var _footsteps_sound = $Sfx/Footsteps
+onready var _landing_sound = $Sfx/Landing
 
 func _ready() -> void:
     _screen_size = get_viewport_rect().size
+    for child in $Sfx.get_children():
+        child.volume_db = ControlSettings.sfx_volume
 
 func _physics_process(delta: float) -> void:
     var h_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -32,18 +37,27 @@ func _physics_process(delta: float) -> void:
     if on_floor:
         _kick_count = 0
     
+    _ledge_grab_cast.rotation_degrees = 0 if h_input == -1 else 180 if h_input == 1 else _ledge_grab_cast.rotation_degrees
+    
     if sign(h_input) != sign(_previous_direction.x):
         _previous_direction.x = h_input
     
+    if _was_in_air and on_floor:
+        _was_in_air = false
+        _landing_sound.play()
+        
     if jumped:
         if on_wall_and_can_kick:
             _kick_count += 1
             _velocity.y = JumpStrength
             _play_left_right_anim("WallKick")
+            _landing_sound.play()
         elif not on_wall and on_floor:
             _velocity.y = JumpStrength
             _play_left_right_anim("Jump")
-        
+        _was_in_air = true
+    
+    
     var h_input_not_zero = not is_zero_approx(h_input)
     
     if h_input_not_zero and on_floor:
@@ -59,8 +73,15 @@ func _physics_process(delta: float) -> void:
         _velocity.x = move_toward(_velocity.x, 0, delta * WindResistance)
         
     _velocity.y += Gravity * delta
-    
-    if is_zero_approx(_velocity.x) and not jumped and on_floor and not _move_anim.current_animation.begins_with("Idle"):
+    var x_vel_zero = is_zero_approx(_velocity.x)
+    if not x_vel_zero and on_floor and not jumped and not _footsteps_sound.playing:
+        _footsteps_sound.play()
+    if abs(_velocity.x) < 10.0 and on_floor and not jumped:
+        _footsteps_sound.stop()
+    if not on_floor:
+        _footsteps_sound.stop()
+        
+    if x_vel_zero and not jumped and on_floor and not _move_anim.current_animation.begins_with("Idle"):
         _play_left_right_anim("Idle")
     
     _velocity.y = move_and_slide_with_snap(_velocity, Vector2.DOWN if not jumped or on_floor else Vector2.ZERO, Vector2.UP, true).y

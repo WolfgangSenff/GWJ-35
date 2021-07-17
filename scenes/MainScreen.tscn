@@ -55,26 +55,26 @@ __meta__ = {
 }
 
 [node name="StartButton" type="Button" parent="MainContainer"]
-margin_left = 129.0
-margin_top = 29.0
-margin_right = 191.0
-margin_bottom = 56.0
+margin_left = 130.0
+margin_top = 22.0
+margin_right = 190.0
+margin_bottom = 54.0
 size_flags_horizontal = 6
 text = "START"
 
 [node name="OptionsButton" type="Button" parent="MainContainer"]
-margin_left = 120.0
-margin_top = 76.0
-margin_right = 199.0
-margin_bottom = 103.0
+margin_left = 121.0
+margin_top = 74.0
+margin_right = 198.0
+margin_bottom = 106.0
 size_flags_horizontal = 6
 text = "OPTIONS"
 
 [node name="CreditsButton" type="Button" parent="MainContainer"]
-margin_left = 120.0
-margin_top = 123.0
-margin_right = 199.0
-margin_bottom = 150.0
+margin_left = 121.0
+margin_top = 126.0
+margin_right = 198.0
+margin_bottom = 158.0
 size_flags_horizontal = 6
 text = "CREDITS"
 
@@ -85,7 +85,7 @@ margin_bottom = 4.0
 rect_scale = Vector2( 1e-05, 1e-05 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-custom_constants/separation = 10
+custom_constants/separation = 5
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false,
@@ -93,10 +93,10 @@ __meta__ = {
 }
 
 [node name="ChangeFontButton" type="Button" parent="OptionsContainer"]
-margin_left = 108.0
-margin_top = 23.0
-margin_right = 211.0
-margin_bottom = 50.0
+margin_left = 109.0
+margin_top = 10.0
+margin_right = 210.0
+margin_bottom = 42.0
 size_flags_horizontal = 6
 theme = ExtResource( 4 )
 text = "FONT: PIXEL"
@@ -105,27 +105,50 @@ script = ExtResource( 5 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OptionsContainer/ChangeFontButton"]
 anims/UpdateFontDyslexic = SubResource( 1 )
 
-[node name="ThingButton2" type="Button" parent="OptionsContainer"]
-margin_left = 125.0
-margin_top = 60.0
-margin_right = 194.0
-margin_bottom = 87.0
+[node name="SfxVolumeSlider" type="HSlider" parent="OptionsContainer"]
+margin_left = 90.0
+margin_top = 47.0
+margin_right = 230.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 140, 0 )
 size_flags_horizontal = 6
-text = "THING2"
+min_value = -50.0
+max_value = -5.0
+value = -15.0
 
-[node name="ThingButton3" type="Button" parent="OptionsContainer"]
-margin_left = 125.0
-margin_top = 97.0
-margin_right = 194.0
-margin_bottom = 124.0
+[node name="Label" type="Label" parent="OptionsContainer"]
+margin_top = 68.0
+margin_right = 320.0
+margin_bottom = 89.0
+text = "SFX VOLUME"
+align = 1
+
+[node name="MusicVolumeSlider" type="HSlider" parent="OptionsContainer"]
+margin_left = 90.0
+margin_top = 94.0
+margin_right = 230.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 140, 0 )
 size_flags_horizontal = 6
-text = "THING3"
+min_value = -50.0
+max_value = -5.0
+value = -15.0
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label2" type="Label" parent="OptionsContainer"]
+margin_top = 115.0
+margin_right = 320.0
+margin_bottom = 136.0
+text = "MUSIC VOLUME"
+align = 1
 
 [node name="BackButton" type="Button" parent="OptionsContainer"]
-margin_left = 134.0
-margin_top = 134.0
-margin_right = 186.0
-margin_bottom = 161.0
+margin_left = 135.0
+margin_top = 141.0
+margin_right = 185.0
+margin_bottom = 173.0
 size_flags_horizontal = 6
 text = "BACK"
 
@@ -135,5 +158,7 @@ text = "BACK"
 
 [connection signal="pressed" from="MainContainer/StartButton" to="." method="_on_StartButton_pressed" flags=7]
 [connection signal="pressed" from="MainContainer/OptionsButton" to="." method="_on_OptionsButton_pressed" flags=3]
+[connection signal="value_changed" from="OptionsContainer/SfxVolumeSlider" to="." method="_on_SfxVolumeSlider_value_changed"]
+[connection signal="value_changed" from="OptionsContainer/MusicVolumeSlider" to="." method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="pressed" from="OptionsContainer/BackButton" to="." method="_on_BackButton_pressed" flags=3]
 [connection signal="tween_step" from="Tween" to="." method="_on_Tween_tween_step"]

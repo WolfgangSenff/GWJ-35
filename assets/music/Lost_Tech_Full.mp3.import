@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Lost_Tech_Full.mp3-ccf6772ca8fba058941c250eebf01092.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Lost_Tech_Full.mp3"
+dest_files=[ "res://.import/Lost_Tech_Full.mp3-ccf6772ca8fba058941c250eebf01092.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

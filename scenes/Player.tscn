@@ -1,10 +1,13 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/player.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/sfx/Footsteps 01 Loop.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sfx/Landing 01.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/particles/slide_particles.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6, 12 )
+extents = Vector2( 6, 7 )
 
 [sub_resource type="Shader" id=2]
 code = "/*
@@ -86,6 +89,12 @@ shader_param/noise_density = 0.0
 shader_param/beam_size = 0.15
 shader_param/color = Color( 0.541176, 0.690196, 0.376471, 1 )
 shader_param/direction = Vector2( 1, 0 )
+
+[sub_resource type="Curve" id=20]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.521053 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=21]
+_data = [ Vector2( 0.0121951, 0.999742 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.562469 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="Animation" id=4]
 resource_name = "Backward"
@@ -177,40 +186,39 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=19]
-resource_name = "JumpLeft"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 12, 12, 24, 25, 26, 27 ]
-}
-
-[sub_resource type="Animation" id=18]
-resource_name = "JumpRight"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 4, 4, 16, 17, 18, 19 ]
-}
-
 [sub_resource type="Animation" id=8]
-resource_name = "LedgeGrabLeft"
+resource_name = "JumpLeft"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "JumpRight"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19 ]
+}
+
+[sub_resource type="Animation" id=10]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -225,8 +233,7 @@ tracks/0/keys = {
 "values": [ 14, 15, 24, 25, 26, 27 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "LedgeGrabRight"
+[sub_resource type="Animation" id=11]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -241,8 +248,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 16, 17, 18, 19 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "RunLeft"
+[sub_resource type="Animation" id=12]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -258,8 +264,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "RunRight"
+[sub_resource type="Animation" id=13]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -275,8 +280,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "SlideLeft"
+[sub_resource type="Animation" id=14]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -291,9 +295,56 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 12 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/SlideParticlesLeft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -6, 12 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/SlideParticlesRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, 13 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/SlideParticlesRight:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/SlideParticlesLeft:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=13]
-resource_name = "SlideRight"
+[sub_resource type="Animation" id=15]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -308,9 +359,56 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 4 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/SlideParticlesLeft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -5, 13 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/SlideParticlesRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 6, 12 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/SlideParticlesRight:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/SlideParticlesLeft:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=14]
-resource_name = "WallKickLeft"
+[sub_resource type="Animation" id=16]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -325,8 +423,7 @@ tracks/0/keys = {
 "values": [ 29 ]
 }
 
-[sub_resource type="Animation" id=15]
-resource_name = "WallKickRight"
+[sub_resource type="Animation" id=17]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -341,8 +438,7 @@ tracks/0/keys = {
 "values": [ 21 ]
 }
 
-[sub_resource type="Animation" id=16]
-resource_name = "WallSlideLeft"
+[sub_resource type="Animation" id=18]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -358,8 +454,7 @@ tracks/0/keys = {
 "values": [ 28 ]
 }
 
-[sub_resource type="Animation" id=17]
-resource_name = "WallSlideRight"
+[sub_resource type="Animation" id=19]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -381,7 +476,7 @@ collision_mask = 131072
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1 )
+position = Vector2( 0, 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -390,40 +485,75 @@ z_index = 1
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 4
-frame = 12
+frame = 4
+
+[node name="SlideParticlesLeft" type="CPUParticles2D" parent="Sprite"]
+show_behind_parent = true
+position = Vector2( -5, 13 )
+emitting = false
+lifetime = 0.5
+one_shot = true
+local_coords = false
+texture = ExtResource( 7 )
+emission_shape = 2
+emission_rect_extents = Vector2( 2, 2 )
+direction = Vector2( 0, -1 )
+spread = 180.0
+gravity = Vector2( 0, -30 )
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 20 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="SlideParticlesRight" type="CPUParticles2D" parent="Sprite"]
+show_behind_parent = true
+position = Vector2( 6, 12 )
+emitting = false
+lifetime = 0.5
+one_shot = true
+local_coords = false
+texture = ExtResource( 7 )
+emission_shape = 2
+emission_rect_extents = Vector2( 2, 2 )
+direction = Vector2( 0, -1 )
+spread = 180.0
+gravity = Vector2( 0, -30 )
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 21 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Backward = SubResource( 4 )
 anims/Forward = SubResource( 5 )
 
-[node name="CastRight" type="RayCast2D" parent="."]
-enabled = true
-cast_to = Vector2( 9, 0 )
-collision_mask = 917504
-
-[node name="CastDown" type="RayCast2D" parent="."]
-enabled = true
-cast_to = Vector2( 0, 12 )
-collision_mask = 917504
-
-[node name="CastLeft" type="RayCast2D" parent="."]
-enabled = true
-cast_to = Vector2( -9, 0 )
-collision_mask = 917504
-
 [node name="MovementAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "IdleRight"
 anims/IdleLeft = SubResource( 6 )
 anims/IdleRight = SubResource( 7 )
-anims/JumpLeft = SubResource( 19 )
-anims/JumpRight = SubResource( 18 )
-anims/LedgeGrabLeft = SubResource( 8 )
-anims/LedgeGrabRight = SubResource( 9 )
-anims/RunLeft = SubResource( 10 )
-anims/RunRight = SubResource( 11 )
-anims/SlideLeft = SubResource( 12 )
-anims/SlideRight = SubResource( 13 )
-anims/WallKickLeft = SubResource( 14 )
-anims/WallKickRight = SubResource( 15 )
-anims/WallSlideLeft = SubResource( 16 )
-anims/WallSlideRight = SubResource( 17 )
+anims/JumpLeft = SubResource( 8 )
+anims/JumpRight = SubResource( 9 )
+anims/LedgeGrabLeft = SubResource( 10 )
+anims/LedgeGrabRight = SubResource( 11 )
+anims/RunLeft = SubResource( 12 )
+anims/RunRight = SubResource( 13 )
+anims/SlideLeft = SubResource( 14 )
+anims/SlideRight = SubResource( 15 )
+anims/WallKickLeft = SubResource( 16 )
+anims/WallKickRight = SubResource( 17 )
+anims/WallSlideLeft = SubResource( 18 )
+anims/WallSlideRight = SubResource( 19 )
+
+[node name="LedgeGrabCast" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -8, 0 )
+collision_mask = 131072
+
+[node name="Sfx" type="Node" parent="."]
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 3 )
+pitch_scale = 2.0
+
+[node name="Landing" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 5 )
+volume_db = -10.0
