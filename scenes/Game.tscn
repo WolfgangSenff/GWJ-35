@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/sfx/Character - Teleport into screen 01.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/sfx/Character - Teleport back from screen 02.wav" type="AudioStream" id=7]
 [ext_resource path="res://scenes/Sfx.gd" type="Script" id=8]
+[ext_resource path="res://assets/relic_platform.png" type="Texture" id=9]
+[ext_resource path="res://scenes/PowerUp.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -34,6 +36,14 @@ tile_data = PoolIntArray( 65537, 0, 65537, 65538, 0, 65538, 65539, 0, 65539, 655
 
 [node name="Sprite" parent="LevelBase" index="1"]
 self_modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 152, 88 )
+
+[node name="Sprite2" type="Sprite" parent="LevelBase"]
+position = Vector2( 104, 104 )
+texture = ExtResource( 9 )
+
+[node name="PowerUp" parent="LevelBase" instance=ExtResource( 10 )]
+position = Vector2( -0.353951, 7.19704 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
