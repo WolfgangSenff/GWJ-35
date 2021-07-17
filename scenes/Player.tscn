@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/particles/slide_particles.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4, 7 )
+extents = Vector2( 7, 7 )
 
 [sub_resource type="Shader" id=2]
 code = "/*

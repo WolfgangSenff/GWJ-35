@@ -8,7 +8,7 @@ const MaxSpeed = 120
 const MaxWallKicks = 5
 const JumpStrength = -190
 const WindResistance = 50
-const LedgeCounterMax = 0.8
+const LedgeCounterMax = 0.3
 
 var _kick_count = 0
 var _velocity = Vector2.ZERO
