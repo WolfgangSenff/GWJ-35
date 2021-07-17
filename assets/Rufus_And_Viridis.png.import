@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lumiere.png-29bc60c34d1736022efcb7f9ac644b89.stex"
+path="res://.import/Rufus_And_Viridis.png-30721b491022e860d545257f2dcd3b95.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Lumiere.png"
-dest_files=[ "res://.import/Lumiere.png-29bc60c34d1736022efcb7f9ac644b89.stex" ]
+source_file="res://assets/Rufus_And_Viridis.png"
+dest_files=[ "res://.import/Rufus_And_Viridis.png-30721b491022e860d545257f2dcd3b95.stex" ]
 
 [params]
 
