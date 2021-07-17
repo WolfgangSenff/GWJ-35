@@ -5,7 +5,7 @@ signal sfx_volume_changed
 signal music_volume_changed
 
 var use_pixel_font = false
-var sfx_volume = -15
+var sfx_volume = -10
 var music_volume = -15
 
 const MaxSoundVolume = -10

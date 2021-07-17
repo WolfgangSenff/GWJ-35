@@ -17,12 +17,14 @@ var _current_transfer_time = 0
 var _can_teleport = false
 
 func _ready() -> void:
-	_all_levels = get_tree().get_nodes_in_group("Level")
-	reset_levels()
-	_level_size = _all_levels.size()
+    _all_levels = get_tree().get_nodes_in_group("Level")
+    reset_levels()
+    _level_size = _all_levels.size()
+    _forward_sound.volume_db = ControlSettings.sfx_volume
+    _backward_sound.volume_db = ControlSettings.sfx_volume
 
 func _process(delta: float) -> void:
-	_lumiere.global_position = get_global_mouse_position()
+    _lumiere.global_position = get_global_mouse_position()
 
 func _physics_process(delta: float) -> void:
     if _can_teleport:
