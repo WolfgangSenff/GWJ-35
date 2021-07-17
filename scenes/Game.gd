@@ -6,6 +6,8 @@ const TransferSpeed = 1.0
 onready var _current_layer = $LevelBase3
 onready var _player = $Player
 onready var _lumiere = $Lumiere
+onready var _forward_sound = $Sfx/TeleportForwardSound
+onready var _backward_sound = $Sfx/TeleportBackwardSound
 
 var _current_layer_index = 2
 var _all_levels
@@ -27,7 +29,8 @@ func _physics_process(delta: float) -> void:
         if Input.is_action_just_pressed("transfer_forward"):
             _current_layer_index -= 1
             _current_layer_index = clamp(_current_layer_index, 0, _level_size)
-            if _current_layer_index >= 0:
+            _forward_sound.play()
+            if _current_layer_index > 0:
                 _player.disable_physics()
                 reset_levels()
                 _current_layer = _all_levels[_current_layer_index]
@@ -36,6 +39,7 @@ func _physics_process(delta: float) -> void:
         elif Input.is_action_just_pressed("transfer_back"):
             _current_layer_index += 1
             _current_layer_index = clamp(_current_layer_index, 0, _level_size)
+            _backward_sound.play()
             if _current_layer_index < _level_size:
                 _player.disable_physics(false)
                 reset_levels()
