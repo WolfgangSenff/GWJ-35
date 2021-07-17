@@ -24,32 +24,32 @@ func _process(delta: float) -> void:
 	_lumiere.global_position = get_global_mouse_position()
 
 func _physics_process(delta: float) -> void:
-	if not _transferring:
-		if Input.is_action_just_pressed("transfer_forward"):
-			_current_layer_index -= 1
-			_current_layer_index = clamp(_current_layer_index, 0, _level_size)
-			_forward_sound.play()
-			if _current_layer_index > 0:
-				_player.disable_physics()
-				reset_levels()
-				_current_layer = _all_levels[_current_layer_index]
-				_transferring = true
-				_current_transfer_time = 0            
-		elif Input.is_action_just_pressed("transfer_back"):
-			_current_layer_index += 1
-			_current_layer_index = clamp(_current_layer_index, 0, _level_size)
-			_backward_sound.play()
-			if _current_layer_index < _level_size:
-				_player.disable_physics(false)
-				reset_levels()
-				_current_layer = _all_levels[_current_layer_index]
-				_transferring = true
-				_current_transfer_time = 0
-	else:
-		_current_transfer_time += delta * TransferSpeed
-		if _current_transfer_time > TransferTime:
-			_transferring = false
-			_player.enable_physics()
+    if not _transferring:
+        if Input.is_action_just_pressed("transfer_forward"):
+            _current_layer_index -= 1
+            _current_layer_index = clamp(_current_layer_index, 0, _level_size)
+            _forward_sound.play()
+            if _current_layer_index >= 0:
+                _player.disable_physics()
+                reset_levels()
+                _current_layer = _all_levels[_current_layer_index]
+                _transferring = true
+                _current_transfer_time = 0            
+        elif Input.is_action_just_pressed("transfer_back"):
+            _current_layer_index += 1
+            _current_layer_index = clamp(_current_layer_index, 0, _level_size)
+            _backward_sound.play()
+            if _current_layer_index < _level_size:
+                _player.disable_physics(false)
+                reset_levels()
+                _current_layer = _all_levels[_current_layer_index]
+                _transferring = true
+                _current_transfer_time = 0
+    else:
+        _current_transfer_time += delta * TransferSpeed
+        if _current_transfer_time > TransferTime:
+            _transferring = false
+            _player.enable_physics()
 
 func reset_levels() -> void:
 	var current_index = 0

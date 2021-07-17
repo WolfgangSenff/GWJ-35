@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/particles/slide_particles.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6, 7 )
+extents = Vector2( 3, 7 )
 
 [sub_resource type="Shader" id=2]
 code = "/*
@@ -445,7 +445,31 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 28 ]
+"values": [ 20 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/SlideParticlesRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -7, -14 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/SlideParticlesRight:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=21]
@@ -461,7 +485,31 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 20 ]
+"values": [ 28 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/SlideParticlesRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 7, -14 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/SlideParticlesRight:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [node name="Player" type="KinematicBody2D"]
@@ -479,7 +527,7 @@ z_index = 1
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 4
-frame = 4
+frame = 20
 
 [node name="SlideParticlesLeft" type="CPUParticles2D" parent="Sprite"]
 show_behind_parent = true
@@ -502,7 +550,7 @@ __meta__ = {
 
 [node name="SlideParticlesRight" type="CPUParticles2D" parent="Sprite"]
 show_behind_parent = true
-position = Vector2( 6, 12 )
+position = Vector2( -7, -14 )
 emitting = false
 lifetime = 0.5
 one_shot = true
@@ -538,6 +586,13 @@ anims/WallSlideLeft = SubResource( 20 )
 anims/WallSlideRight = SubResource( 21 )
 
 [node name="LedgeGrabCast" type="RayCast2D" parent="."]
+position = Vector2( 0, -3 )
+enabled = true
+cast_to = Vector2( -8, 0 )
+collision_mask = 131072
+
+[node name="AboveLedgeCast" type="RayCast2D" parent="."]
+position = Vector2( 0, -15 )
 enabled = true
 cast_to = Vector2( -8, 0 )
 collision_mask = 131072
