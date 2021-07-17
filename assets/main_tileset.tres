@@ -108,16 +108,13 @@ points = PoolVector2Array( 16, 16, 7, 16, 7, 0, 16, 0 )
 points = PoolVector2Array( 2, 16, 0, 16, 0, 0, 2, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=36]
-points = PoolVector2Array( 16, 16, 10, 16, 10, 0, 16, 0 )
+points = PoolVector2Array( 16, 16, 14, 16, 14, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=37]
 points = PoolVector2Array( 9, 16, 0, 16, 0, 0, 9, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=38]
-points = PoolVector2Array( 16, 0, 16, 16, 10, 16, 10, 2, 11, 1, 12, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=39]
-points = PoolVector2Array( 12, 16, 16, 12, 16, 13, 16, 16, 12, 16 )
+points = PoolVector2Array( 16, 0, 16, 16, 14, 16, 14, 2, 14, 1, 14, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=40]
 points = PoolVector2Array( 0, 16, 0, 12, 12, 0, 16, 0, 16, 16 )
@@ -132,7 +129,7 @@ points = PoolVector2Array( 0, 0, 8, 0, 0, 8 )
 points = PoolVector2Array( 16, 0, 16, 8, 9, 16, 0, 16, 0, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=44]
-points = PoolVector2Array( 16, 0, 16, 15, 8, 7, 8, 0 )
+points = PoolVector2Array( 16, 0, 16, 15, 12, 11, 12, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=45]
 points = PoolVector2Array( 0, 12, 10, 2, 10, 0, 16, 0, 16, 16, 0, 16 )
@@ -154,6 +151,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=51]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=52]
+points = PoolVector2Array( 14, 16, 16, 12, 16, 16 )
 
 [resource]
 0/name = "stairs.png 0"
@@ -405,12 +405,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "shape": SubResource( 38 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 5, 4 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 39 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-}, {
 "autotile_coord": Vector2( 6, 4 ),
 "one_way": false,
 "one_way_margin": 1.0,
@@ -481,6 +475,12 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 51 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 4 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 52 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
