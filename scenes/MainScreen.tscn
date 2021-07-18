@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/MainScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/default_theme.tres" type="Theme" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/pixel_theme.tres" type="Theme" id=4]
 [ext_resource path="res://scenes/ChangeFontButton.gd" type="Script" id=5]
 [ext_resource path="res://assets/main_tileset.tres" type="TileSet" id=6]
+[ext_resource path="res://assets/Title.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "UpdateFontDyslexic"
@@ -89,6 +90,17 @@ tile_data = PoolIntArray( 65537, 536870912, 131083, 65538, 536870912, 131082, 65
 [node name="MainContainer" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer"]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 376.0
+margin_bottom = 112.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
