@@ -6,7 +6,7 @@ signal music_volume_changed
 
 var use_pixel_font = false
 var sfx_volume = -10
-var music_volume = -15
+var music_volume = -30
 
 const MaxSoundVolume = -10
 
@@ -15,6 +15,10 @@ const SoundCutoffVolume = -50
 onready var _main_music = $MainMusicPlayer
 onready var _menu_music = $MenuMusicPlayer
 onready var _anim = $AnimationPlayer
+
+func _ready() -> void:
+    _main_music.volume_db = music_volume
+    _menu_music.volume_db = music_volume
 
 func swap_fonts() -> void:
     use_pixel_font = not use_pixel_font

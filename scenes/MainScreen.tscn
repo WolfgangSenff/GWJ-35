@@ -44,16 +44,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 352.0
-margin_bottom = 208.0
-color = Color( 0.305882, 0.345098, 0.290196, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Control" type="Control" parent="."]
 margin_left = 80.0
 margin_top = 8.0
@@ -77,16 +67,6 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 65537, 536870912, 131083, 65538, 536870912, 131082, 65553, 0, 131082, 65554, 0, 131083, 131073, 536870912, 196619, 131074, 536870912, 196618, 131089, 0, 196618, 131090, 0, 196619, 196609, 536870912, 262155, 196610, 536870912, 262154, 196625, 0, 262154, 196626, 0, 262155, 262145, 536870912, 327691, 262146, 0, 65542, 262147, 0, 65543, 262148, 0, 131081, 262151, 0, 65537, 262152, 0, 65538, 262153, 0, 65539, 262154, 0, 65542, 262155, 0, 65543, 262156, 0, 65544, 262159, 0, 65537, 262160, 0, 65538, 262161, 0, 65539, 262162, 0, 327691, 327682, 0, 131078, 327683, 0, 131079, 327684, 0, 131080, 327685, 0, 131081, 327686, 0, 65537, 327687, 0, 131073, 327688, 0, 131074, 327689, 0, 196610, 327690, 0, 196615, 327691, 0, 131079, 327692, 0, 131080, 327693, 0, 65544, 327694, 0, 65537, 327695, 0, 131073, 327696, 0, 131074, 327697, 0, 131075, 393217, 536870912, 131083, 393218, 536870912, 131082, 393219, 0, 196615, 393220, 0, 196616, 393221, 0, 196617, 393222, 0, 196608, 393223, 0, 196609, 393224, 0, 196610, 393227, 0, 196615, 393228, 0, 196616, 393229, 0, 196617, 393230, 0, 196608, 393231, 0, 196609, 393232, 0, 196610, 393233, 0, 131082, 393234, 0, 131083, 458753, 536870912, 196619, 458754, 536870912, 196618, 458769, 0, 196618, 458770, 0, 196619, 524289, 536870912, 262155, 524290, 536870912, 262154, 524305, 0, 262154, 524306, 0, 262155, 589825, 536870912, 327691, 589826, 536870912, 327690, 589827, 0, 65541, 589828, 0, 65541, 589829, 0, 65541, 589830, 0, 65542, 589831, 0, 65543, 589832, 0, 65544, 589835, 0, 65537, 589836, 0, 65538, 589837, 0, 65539, 589838, 0, 65540, 589839, 0, 65540, 589840, 0, 65540, 589841, 0, 327690, 589842, 0, 327691, 655366, 0, 131078, 655367, 0, 196616, 655368, 0, 196617, 655369, 0, 65540, 655370, 0, 65541, 655371, 0, 196608, 655372, 0, 196609, 655373, 0, 131075 )
 
-[node name="ColorRect2" type="ColorRect" parent="Control"]
-margin_left = -112.0
-margin_top = -40.0
-margin_right = 272.0
-margin_bottom = 200.0
-color = Color( 0.305882, 0.345098, 0.290196, 0.392157 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Control2" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -106,13 +86,22 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 65537, 536870912, 131083, 65538, 536870912, 131082, 65553, 0, 131082, 65554, 0, 131083, 131073, 536870912, 196619, 131074, 536870912, 196618, 131089, 0, 196618, 131090, 0, 196619, 196609, 536870912, 262155, 196610, 536870912, 262154, 196625, 0, 262154, 196626, 0, 262155, 262145, 536870912, 327691, 262146, 0, 65542, 262147, 0, 65543, 262148, 0, 131081, 262151, 0, 65537, 262152, 0, 65538, 262153, 0, 65539, 262154, 0, 65542, 262155, 0, 65543, 262156, 0, 65544, 262159, 0, 65537, 262160, 0, 65538, 262161, 0, 65539, 262162, 0, 327691, 327682, 0, 131078, 327683, 0, 131079, 327684, 0, 131080, 327685, 0, 131081, 327686, 0, 65537, 327687, 0, 131073, 327688, 0, 131074, 327689, 0, 196610, 327690, 0, 196615, 327691, 0, 131079, 327692, 0, 131080, 327693, 0, 65544, 327694, 0, 65537, 327695, 0, 131073, 327696, 0, 131074, 327697, 0, 131075, 393217, 536870912, 131083, 393218, 536870912, 131082, 393219, 0, 196615, 393220, 0, 196616, 393221, 0, 196617, 393222, 0, 196608, 393223, 0, 196609, 393224, 0, 196610, 393227, 0, 196615, 393228, 0, 196616, 393229, 0, 196617, 393230, 0, 196608, 393231, 0, 196609, 393232, 0, 196610, 393233, 0, 131082, 393234, 0, 131083, 458753, 536870912, 196619, 458754, 536870912, 196618, 458769, 0, 196618, 458770, 0, 196619, 524289, 536870912, 262155, 524290, 536870912, 262154, 524305, 0, 262154, 524306, 0, 262155, 589825, 536870912, 327691, 589826, 536870912, 327690, 589827, 0, 65541, 589828, 0, 65541, 589829, 0, 65541, 589830, 0, 65542, 589831, 0, 65543, 589832, 0, 65544, 589835, 0, 65537, 589836, 0, 65538, 589837, 0, 65539, 589838, 0, 65540, 589839, 0, 65540, 589840, 0, 65540, 589841, 0, 327690, 589842, 0, 327691, 655366, 0, 131078, 655367, 0, 196616, 655368, 0, 196617, 655369, 0, 65540, 655370, 0, 65541, 655371, 0, 196608, 655372, 0, 196609, 655373, 0, 131075 )
 
-[node name="MainContainer" type="VBoxContainer" parent="."]
+[node name="MainContainer" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 128.0
-margin_top = 88.0
-margin_right = -64.0
-margin_bottom = 52.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainContainer" type="VBoxContainer" parent="MainContainer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -90.0
+margin_right = 240.0
+margin_bottom = 90.0
 rect_scale = Vector2( 0.5, 0.5 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -122,27 +111,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartButton" type="Button" parent="MainContainer"]
-margin_left = 34.0
-margin_top = 4.0
-margin_right = 94.0
-margin_bottom = 36.0
+[node name="StartButton" type="Button" parent="MainContainer/MainContainer"]
+margin_left = 130.0
+margin_top = 22.0
+margin_right = 190.0
+margin_bottom = 54.0
 size_flags_horizontal = 6
 text = "START"
 
-[node name="OptionsButton" type="Button" parent="MainContainer"]
-margin_left = 25.0
-margin_top = 56.0
-margin_right = 102.0
-margin_bottom = 88.0
+[node name="OptionsButton" type="Button" parent="MainContainer/MainContainer"]
+margin_left = 121.0
+margin_top = 74.0
+margin_right = 198.0
+margin_bottom = 106.0
 size_flags_horizontal = 6
 text = "OPTIONS"
 
-[node name="CreditsButton" type="Button" parent="MainContainer"]
-margin_left = 25.0
-margin_top = 108.0
-margin_right = 102.0
-margin_bottom = 140.0
+[node name="CreditsButton" type="Button" parent="MainContainer/MainContainer"]
+margin_left = 121.0
+margin_top = 126.0
+margin_right = 198.0
+margin_bottom = 158.0
 size_flags_horizontal = 6
 text = "CREDITS"
 
@@ -224,8 +213,9 @@ text = "BACK"
 
 [node name="Lumiere" parent="." instance=ExtResource( 3 )]
 
-[connection signal="pressed" from="MainContainer/StartButton" to="." method="_on_StartButton_pressed" flags=7]
-[connection signal="pressed" from="MainContainer/OptionsButton" to="." method="_on_OptionsButton_pressed" flags=3]
+[connection signal="pressed" from="MainContainer/MainContainer/StartButton" to="." method="_on_StartButton_pressed" flags=7]
+[connection signal="pressed" from="MainContainer/MainContainer/OptionsButton" to="." method="_on_OptionsButton_pressed" flags=3]
+[connection signal="pressed" from="MainContainer/MainContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="value_changed" from="OptionsContainer/SfxVolumeSlider" to="." method="_on_SfxVolumeSlider_value_changed"]
 [connection signal="value_changed" from="OptionsContainer/MusicVolumeSlider" to="." method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="pressed" from="OptionsContainer/BackButton" to="." method="_on_BackButton_pressed" flags=3]

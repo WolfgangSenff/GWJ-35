@@ -99,6 +99,7 @@ tracks/3/keys = {
 [node name="LevelBase" type="Node2D" groups=[
 "Level",
 ]]
+z_as_relative = false
 script = ExtResource( 2 )
 
 [node name="TweenerLayer3" type="TileMap" parent="."]
@@ -134,7 +135,7 @@ collision_mask = 131072
 format = 1
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.784314 )
+self_modulate = Color( 0.305882, 0.345098, 0.290196, 0.784314 )
 position = Vector2( 153.984, 88.3532 )
 scale = Vector2( 1.35, 1.35 )
 texture = ExtResource( 1 )

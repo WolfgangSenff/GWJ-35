@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/EndDoor.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6.28464, 27.3775 )
+extents = Vector2( 13.9843, 21.4104 )
 
 [node name="EndDoor" type="Area2D"]
 collision_layer = 8
@@ -14,4 +14,4 @@ script = ExtResource( 1 )
 position = Vector2( 0.0977325, -27.2973 )
 shape = SubResource( 1 )
 
-[connection signal="body_entered" from="." to="." method="_on_EndDoor_body_entered" flags=7]
+[connection signal="body_entered" from="." to="." method="_on_EndDoor_body_entered" flags=3]

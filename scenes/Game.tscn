@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenes/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/relic_platform.png" type="Texture" id=9]
 [ext_resource path="res://scenes/PowerUp.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Transfer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/EndDoor.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "DisappearForward"
@@ -672,7 +673,11 @@ z_as_relative = false
 anims/DisappearForward = SubResource( 1 )
 anims/Expand = SubResource( 2 )
 
+[node name="EndDoor" parent="LevelBase10" instance=ExtResource( 12 )]
+position = Vector2( 158.989, 117.834 )
+
 [node name="LevelBase9" parent="." instance=ExtResource( 1 )]
+visible = false
 z_index = -3
 z_as_relative = false
 
@@ -691,6 +696,7 @@ anims/DisappearForward = SubResource( 3 )
 anims/Expand = SubResource( 4 )
 
 [node name="LevelBase8" parent="." instance=ExtResource( 1 )]
+visible = false
 z_index = -3
 z_as_relative = false
 
@@ -706,6 +712,7 @@ anims/DisappearForward = SubResource( 5 )
 anims/Expand = SubResource( 6 )
 
 [node name="LevelBase7" parent="." instance=ExtResource( 1 )]
+visible = false
 z_index = -3
 z_as_relative = false
 
@@ -728,6 +735,7 @@ anims/DisappearForward = SubResource( 7 )
 anims/Expand = SubResource( 8 )
 
 [node name="LevelBase6" parent="." instance=ExtResource( 1 )]
+visible = false
 z_index = -3
 z_as_relative = false
 
@@ -761,12 +769,14 @@ tile_data = PoolIntArray( 1, 536870913, 0, 17, 1, 0, 131075, 4, 0, 131078, 0, 65
 [node name="FG" parent="LevelBase5" index="3"]
 z_index = 2
 z_as_relative = false
+tile_data = PoolIntArray( 65535, 536870924, 0, 18, 12, 0 )
 
 [node name="AnimationPlayer" parent="LevelBase5" index="5"]
 anims/DisappearForward = SubResource( 11 )
 anims/Expand = SubResource( 12 )
 
 [node name="LevelBase4" parent="." instance=ExtResource( 1 )]
+visible = false
 z_index = -3
 z_as_relative = false
 
@@ -789,6 +799,7 @@ anims/DisappearForward = SubResource( 13 )
 anims/Expand = SubResource( 14 )
 
 [node name="LevelBase3" parent="." instance=ExtResource( 1 )]
+visible = false
 z_index = -3
 z_as_relative = false
 
@@ -807,6 +818,7 @@ z_as_relative = false
 tile_data = PoolIntArray( 458751, 536870924, 0, 393234, 12, 0 )
 
 [node name="LevelBase2" parent="." instance=ExtResource( 1 )]
+visible = false
 z_index = -2
 z_as_relative = false
 
@@ -825,6 +837,7 @@ z_as_relative = false
 tile_data = PoolIntArray( 262143, 536870924, 0, 196626, 12, 0 )
 
 [node name="LevelBase" parent="." instance=ExtResource( 1 )]
+visible = false
 z_as_relative = false
 
 [node name="TweenerLayer3" parent="LevelBase" index="0"]
@@ -856,7 +869,7 @@ position = Vector2( -0.383415, 15.6315 )
 texture = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 56, 112 )
+position = Vector2( 56.0764, 122.464 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 160, 90 )
@@ -897,6 +910,7 @@ position = Vector2( 167.455, 211.901 )
 [connection signal="gauntlets_unlocked" from="LevelBase/PowerUp" to="." method="_on_PowerUp_gauntlets_unlocked" flags=7]
 
 [editable path="LevelBase10"]
+[editable path="LevelBase10/EndDoor"]
 [editable path="LevelBase9"]
 [editable path="LevelBase8"]
 [editable path="LevelBase7"]
