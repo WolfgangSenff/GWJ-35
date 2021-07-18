@@ -158,6 +158,4 @@ func disable_physics(is_forward = true) -> void:
     _anim.play("Forward" if is_forward else "Backward")
     
 func enable_physics() -> void:
-    yield(get_tree(), "idle_frame")
-    yield(get_tree(), "idle_frame")
     call_deferred("set_physics_process", true)

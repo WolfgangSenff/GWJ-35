@@ -111,8 +111,8 @@ format = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.784314 )
-position = Vector2( 153.984, 88.3532 )
-scale = Vector2( 1.35, 1.35 )
+position = Vector2( 161.571, 97.7641 )
+scale = Vector2( 2.43745, 3.1051 )
 texture = ExtResource( 1 )
 script = ExtResource( 4 )
 

@@ -1,7 +1,7 @@
 extends Node2D
 
-const TransferTime = 0.4
-const TransferSpeed = 1.0
+const TransferTime = 0.2
+const TransferSpeed = 140.0
 
 onready var _current_layer = $LevelBase3
 onready var _player = $Player
@@ -18,8 +18,9 @@ var _can_teleport = false
 
 func _ready() -> void:
     _all_levels = get_tree().get_nodes_in_group("Level")
-    reset_levels()
     _level_size = _all_levels.size()
+    _current_layer_index = _level_size - 1
+    reset_levels()
     _forward_sound.volume_db = ControlSettings.sfx_volume
     _backward_sound.volume_db = ControlSettings.sfx_volume
 
@@ -29,7 +30,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
     if _can_teleport:
         if not _transferring:
-            if Input.is_action_just_pressed("transfer_forward"):
+            if Input.is_action_just_pressed("transfer_forward") and _current_layer_index - 1 >= 0:
                 _current_layer_index -= 1
                 _current_layer_index = clamp(_current_layer_index, 0, _level_size)
                 _forward_sound.play()
@@ -39,7 +40,7 @@ func _physics_process(delta: float) -> void:
                     _current_layer = _all_levels[_current_layer_index]
                     _transferring = true
                     _current_transfer_time = 0            
-            elif Input.is_action_just_pressed("transfer_back"):
+            elif Input.is_action_just_pressed("transfer_back") and _current_layer_index + 1 < _level_size:
                 _current_layer_index += 1
                 _current_layer_index = clamp(_current_layer_index, 0, _level_size)
                 _backward_sound.play()
@@ -71,7 +72,7 @@ func reset_levels() -> void:
         elif _current_layer_index < current_index:
             level.disable_physics()
             level.set_scale(Vector2(1.4, 1.4))
-            yield(get_tree().create_timer(0.2), "timeout")
+            yield(get_tree().create_timer(0.1), "timeout")
             level.visible = false
         else:
             level.visible = true
