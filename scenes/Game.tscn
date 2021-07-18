@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -11,22 +11,810 @@
 [ext_resource path="res://assets/relic_platform.png" type="Texture" id=9]
 [ext_resource path="res://scenes/PowerUp.tscn" type="PackedScene" id=10]
 
+[sub_resource type="Animation" id=1]
+resource_name = "DisappearForward"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.294118 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TweenerLayer1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "DisappearForward"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.294118 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TweenerLayer1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "DisappearForward"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.294118 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TweenerLayer1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "DisappearForward"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.294118 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TweenerLayer1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "DisappearForward"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.294118 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TweenerLayer1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "DisappearForward"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.294118 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TweenerLayer1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "DisappearForward"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.294118 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TweenerLayer1:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TweenerLayer1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="LevelBase10" parent="." instance=ExtResource( 1 )]
+visible = false
+z_index = -3
+z_as_relative = false
+
+[node name="FG" parent="LevelBase10" index="3"]
+z_index = 2
+z_as_relative = false
+
+[node name="Sprite" parent="LevelBase10" index="4"]
+visible = false
+
+[node name="AnimationPlayer" parent="LevelBase10" index="5"]
+anims/DisappearForward = SubResource( 1 )
+anims/Expand = SubResource( 2 )
+
+[node name="LevelBase9" parent="." instance=ExtResource( 1 )]
+visible = false
+z_index = -3
+z_as_relative = false
+
+[node name="FG" parent="LevelBase9" index="3"]
+z_index = 2
+z_as_relative = false
+
+[node name="Sprite" parent="LevelBase9" index="4"]
+visible = false
+
+[node name="AnimationPlayer" parent="LevelBase9" index="5"]
+anims/DisappearForward = SubResource( 3 )
+anims/Expand = SubResource( 4 )
+
+[node name="LevelBase8" parent="." instance=ExtResource( 1 )]
+visible = false
+z_index = -3
+z_as_relative = false
+
+[node name="FG" parent="LevelBase8" index="3"]
+z_index = 2
+z_as_relative = false
+
+[node name="Sprite" parent="LevelBase8" index="4"]
+visible = false
+
+[node name="AnimationPlayer" parent="LevelBase8" index="5"]
+anims/DisappearForward = SubResource( 5 )
+anims/Expand = SubResource( 6 )
+
+[node name="LevelBase7" parent="." instance=ExtResource( 1 )]
+visible = false
+z_index = -3
+z_as_relative = false
+
+[node name="TweenerLayer3" parent="LevelBase7" index="0"]
+tile_data = PoolIntArray( -1, 536870918, 0, -65520, 6, 0, 65535, 536870918, 0, 16, 6, 0, 131071, 536870918, 0, 65552, 6, 0, 196607, 536870918, 0, 131088, 6, 0, 262143, 536870918, 0, 196624, 6, 0, 327679, 536870918, 0, 262160, 6, 0, 393215, 536870918, 0, 327696, 6, 0, 458751, 536870918, 0, 393232, 6, 0, 524287, 536870918, 0, 458768, 6, 0, 589823, 536870918, 0, 524304, 6, 0, 655359, 536870918, 0, 589840, 6, 0, 720895, 536870918, 0, 655376, 6, 0, 786431, 536870918, 0, 720912, 6, 0 )
+
+[node name="TweenerLayer1" parent="LevelBase7" index="2"]
+tile_data = PoolIntArray( 327681, 536870913, 0, 327697, 1, 0, 524291, 536870912, 65540, 524292, 0, 393218, 524303, 536870912, 393218, 524304, 0, 65540 )
+
+[node name="FG" parent="LevelBase7" index="3"]
+z_index = 2
+z_as_relative = false
+
+[node name="Sprite" parent="LevelBase7" index="4"]
+visible = false
+
+[node name="AnimationPlayer" parent="LevelBase7" index="5"]
+anims/DisappearForward = SubResource( 7 )
+anims/Expand = SubResource( 8 )
+
+[node name="LevelBase6" parent="." instance=ExtResource( 1 )]
+visible = false
+z_index = -3
+z_as_relative = false
+
+[node name="TweenerLayer3" parent="LevelBase6" index="0"]
+tile_data = PoolIntArray( -1, 536870918, 0, -65520, 6, 0, 65535, 536870918, 0, 16, 6, 0, 131071, 536870918, 0, 65552, 6, 0, 196607, 536870918, 0, 131088, 6, 0, 262143, 536870918, 0, 196624, 6, 0, 327679, 536870918, 0, 262160, 6, 0, 393215, 536870918, 0, 327696, 6, 0, 458751, 536870918, 0, 393232, 6, 0, 524287, 536870918, 0, 458768, 6, 0, 589823, 536870918, 0, 524304, 6, 0, 655359, 536870918, 0, 589840, 6, 0, 720895, 536870918, 0, 655376, 6, 0, 786431, 536870918, 0, 720912, 6, 0 )
+
+[node name="TweenerLayer1" parent="LevelBase6" index="2"]
+tile_data = PoolIntArray( 589832, 0, 393223, 589833, 536870912, 65540, 589834, 536870912, 65541, 589835, 536870912, 393223, 655369, 536870912, 393226, 655370, 536870912, 393226, 720905, 536870912, 393226, 720906, 536870912, 393226 )
+
+[node name="FG" parent="LevelBase6" index="3"]
+z_index = 2
+z_as_relative = false
+
+[node name="AnimationPlayer" parent="LevelBase6" index="5"]
+anims/DisappearForward = SubResource( 9 )
+anims/Expand = SubResource( 10 )
+
+[node name="LevelBase5" parent="." instance=ExtResource( 1 )]
+visible = false
+z_index = -3
+z_as_relative = false
+
+[node name="TweenerLayer3" parent="LevelBase5" index="0"]
+tile_data = PoolIntArray( -1, 536870918, 0, -65520, 6, 0, 65535, 536870918, 0, 16, 6, 0, 131071, 536870918, 0, 65552, 6, 0, 196607, 536870918, 0, 131088, 6, 0, 262143, 536870918, 0, 196624, 6, 0, 327679, 536870918, 0, 262160, 6, 0, 393215, 536870918, 0, 327696, 6, 0, 458751, 536870918, 0, 393232, 6, 0, 524287, 536870918, 0, 458768, 6, 0, 589823, 536870918, 0, 524304, 6, 0, 655359, 536870918, 0, 589840, 6, 0, 720895, 536870918, 0, 655376, 6, 0, 786431, 536870918, 0, 720912, 6, 0 )
+
+[node name="TweenerLayer2" parent="LevelBase5" index="1"]
+tile_data = PoolIntArray( 196613, 11, 0, 196622, 11, 0, 262149, 11, 0, 262158, 11, 0, 327685, 11, 0, 327694, 11, 0, 393221, 11, 0, 393230, 11, 0, 458757, 11, 0, 458766, 11, 0, 524293, 11, 0, 524302, 11, 0, 589829, 11, 0, 589838, 11, 0, 655365, 11, 0, 655374, 11, 0, 720901, 11, 0, 720910, 11, 0 )
+
+[node name="TweenerLayer1" parent="LevelBase5" index="2"]
+tile_data = PoolIntArray( 1, 536870913, 0, 17, 1, 0, 131075, 4, 0, 131078, 0, 65540, 131079, 0, 65540, 131080, 0, 393218, 131083, 536870912, 393218, 131084, 536870912, 65540, 131085, 536870912, 65540, 131086, 536870916, 0, 196611, 3, 0, 196622, 536870915, 0 )
+
+[node name="FG" parent="LevelBase5" index="3"]
+z_index = 2
+z_as_relative = false
+
+[node name="AnimationPlayer" parent="LevelBase5" index="5"]
+anims/DisappearForward = SubResource( 11 )
+anims/Expand = SubResource( 12 )
+
+[node name="LevelBase4" parent="." instance=ExtResource( 1 )]
+z_index = -3
+z_as_relative = false
+
+[node name="TweenerLayer3" parent="LevelBase4" index="0"]
+tile_data = PoolIntArray( -1, 536870918, 0, -65520, 6, 0, 65535, 536870918, 0, 16, 6, 0, 131071, 536870918, 0, 65552, 6, 0, 196607, 536870918, 0, 131088, 6, 0, 262143, 536870918, 0, 196624, 6, 0, 327679, 536870918, 0, 262160, 6, 0, 393215, 536870918, 0, 327696, 6, 0, 458751, 536870918, 0, 393232, 6, 0, 524287, 536870918, 0, 458768, 6, 0, 589823, 536870918, 0, 524304, 6, 0, 655359, 536870918, 0, 589840, 6, 0, 720895, 536870918, 0, 655376, 6, 0, 786431, 536870918, 0, 720912, 6, 0 )
+
+[node name="TweenerLayer2" parent="LevelBase4" index="1"]
+tile_data = PoolIntArray( 196615, 11, 0, 196620, 11, 0, 262151, 11, 0, 262156, 11, 0, 327687, 11, 0, 327692, 11, 0, 393223, 11, 0, 393228, 11, 0, 458759, 11, 0, 458764, 11, 0, 524293, 11, 0, 524295, 11, 0, 524300, 11, 0, 524302, 11, 0, 589829, 11, 0, 589831, 11, 0, 589836, 11, 0, 589838, 11, 0, 655365, 11, 0, 655367, 11, 0, 655372, 11, 0, 655374, 11, 0, 720901, 11, 0, 720903, 11, 0, 720908, 11, 0, 720910, 11, 0 )
+
+[node name="TweenerLayer1" parent="LevelBase4" index="2"]
+tile_data = PoolIntArray( 131077, 536870912, 262148, 131078, 0, 65538, 131079, 0, 65539, 131080, 0, 65540, 131081, 0, 65540, 131082, 536870912, 65540, 131083, 536870912, 65540, 131084, 536870912, 65539, 131085, 536870912, 65538, 131086, 0, 262148, 196613, 536870912, 327684, 196614, 536870912, 327683, 196615, 536870912, 131078, 196620, 0, 131078, 196621, 0, 327683, 196622, 0, 327684, 262149, 536870912, 393220, 262150, 536870912, 393219, 262157, 0, 393219, 262158, 0, 393220, 327685, 536870912, 393220, 327686, 536870912, 393219, 327693, 0, 393219, 327694, 0, 393220, 393217, 536870913, 0, 393221, 536870912, 393220, 393222, 536870912, 393219, 393229, 0, 393219, 393230, 0, 393220, 393233, 1, 0, 458756, 536870912, 65544, 458757, 536870912, 393217, 458758, 536870912, 393216, 458765, 0, 393216, 458766, 0, 393217, 458767, 0, 65544, 524291, 536870912, 131081, 524292, 536870912, 131080, 524293, 536870912, 262146, 524294, 536870912, 327682, 524301, 0, 327682, 524302, 0, 262146, 524303, 0, 131080, 524304, 0, 131081, 589827, 536870914, 0, 589838, 2, 0 )
+
+[node name="FG" parent="LevelBase4" index="3"]
+z_index = 2
+z_as_relative = false
+
+[node name="Sprite" parent="LevelBase4" index="4"]
+visible = false
+
+[node name="AnimationPlayer" parent="LevelBase4" index="5"]
+anims/DisappearForward = SubResource( 13 )
+anims/Expand = SubResource( 14 )
 
 [node name="LevelBase3" parent="." instance=ExtResource( 1 )]
 visible = false
 z_index = -3
 z_as_relative = false
 
+[node name="TweenerLayer3" parent="LevelBase3" index="0"]
+tile_data = PoolIntArray( -1, 536870918, 0, -65520, 6, 0, 65535, 536870918, 0, 16, 6, 0, 131071, 536870918, 0, 65552, 6, 0, 196607, 536870918, 0, 131088, 6, 0, 262143, 536870918, 0, 196624, 6, 0, 327679, 536870918, 0, 262160, 6, 0, 393215, 536870918, 0, 327696, 6, 0, 458751, 536870918, 0, 393232, 6, 0, 524287, 536870918, 0, 458768, 6, 0, 589823, 536870918, 0, 524304, 6, 0, 655359, 536870918, 0, 589840, 6, 0, 720895, 536870918, 0, 655376, 6, 0, 786431, 536870918, 0, 720912, 6, 0 )
+
+[node name="TweenerLayer2" parent="LevelBase3" index="1"]
+tile_data = PoolIntArray( 524297, 536870923, 0, 524298, 536870923, 0, 655357, 536870921, 0, 589829, 536870923, 0, 589833, 536870923, 0, 589834, 536870923, 0, 589838, 536870923, 0, 589843, 536870921, 0, 655365, 536870923, 0, 655369, 536870923, 0, 655370, 536870923, 0, 655374, 536870923, 0, 720901, 536870923, 0, 720905, 536870923, 0, 720906, 536870923, 0, 720910, 536870923, 0, 786437, 536870923, 0, 786441, 536870923, 0, 786442, 536870923, 0, 786446, 536870923, 0 )
+
+[node name="TweenerLayer1" parent="LevelBase3" index="2"]
+tile_data = PoolIntArray( 393217, 536870913, 0, 393233, 1, 0, 458759, 536870917, 0, 458762, 536870916, 0, 524291, 4, 0, 524294, 0, 65540, 524295, 536870914, 0, 524298, 536870915, 0, 524301, 536870912, 65540, 524302, 536870916, 0, 589827, 3, 0, 589838, 536870915, 0 )
+
 [node name="FG" parent="LevelBase3" index="3"]
 z_index = 2
 z_as_relative = false
+tile_data = PoolIntArray( 458751, 536870924, 0, 393234, 12, 0 )
 
 [node name="LevelBase2" parent="." instance=ExtResource( 1 )]
 visible = false
 z_index = -2
 z_as_relative = false
+
+[node name="TweenerLayer3" parent="LevelBase2" index="0"]
+tile_data = PoolIntArray( -1, 536870918, 0, -65520, 6, 0, 65535, 536870918, 0, 16, 6, 0, 131071, 536870918, 0, 65552, 6, 0, 196607, 536870918, 0, 131088, 6, 0, 262143, 536870918, 0, 196624, 6, 0, 327679, 536870918, 0, 262160, 6, 0, 393215, 536870918, 0, 327696, 6, 0, 458751, 536870918, 0, 393232, 6, 0, 524287, 536870918, 0, 458768, 6, 0, 589823, 536870918, 0, 524304, 6, 0, 655359, 536870918, 0, 589840, 6, 0, 720895, 536870918, 0, 655376, 6, 0, 786431, 536870918, 0, 720912, 6, 0 )
+
+[node name="TweenerLayer2" parent="LevelBase2" index="1"]
+tile_data = PoolIntArray( 458749, 536870921, 0, 393221, 536870923, 0, 393230, 536870923, 0, 393235, 536870921, 0, 458757, 536870923, 0, 458766, 536870923, 0, 524293, 536870923, 0, 524302, 536870923, 0, 589829, 536870923, 0, 589838, 536870923, 0, 655365, 536870923, 0, 655374, 536870923, 0, 720901, 536870923, 0, 720910, 536870923, 0, 786437, 536870923, 0, 786446, 536870923, 0 )
 
 [node name="TweenerLayer1" parent="LevelBase2" index="2"]
 tile_data = PoolIntArray( 196609, 536870913, 0, 196625, 1, 0, 327683, 4, 0, 327686, 0, 65540, 327687, 0, 65540, 327688, 0, 65540, 327689, 0, 65540, 327690, 536870912, 65540, 327691, 536870912, 65540, 327692, 536870912, 65540, 327693, 536870912, 65540, 327694, 536870916, 0, 393219, 536870914, 0, 393230, 2, 0 )
@@ -37,7 +825,14 @@ z_as_relative = false
 tile_data = PoolIntArray( 262143, 536870924, 0, 196626, 12, 0 )
 
 [node name="LevelBase" parent="." instance=ExtResource( 1 )]
+visible = false
 z_as_relative = false
+
+[node name="TweenerLayer3" parent="LevelBase" index="0"]
+tile_data = PoolIntArray( -1, 536870918, 0, -65520, 6, 0, 65535, 536870918, 0, 16, 6, 0, 131071, 536870918, 0, 65552, 6, 0, 196607, 536870918, 0, 131088, 6, 0, 262143, 536870918, 0, 196624, 6, 0, 327679, 536870918, 0, 262160, 6, 0, 393215, 536870918, 0, 327696, 6, 0, 458751, 536870918, 0, 393232, 6, 0, 524287, 536870918, 0, 458768, 6, 0, 589823, 536870918, 0, 524304, 6, 0, 655359, 536870918, 0, 589840, 6, 0, 720895, 536870918, 0, 655376, 6, 0, 786431, 536870918, 0, 720912, 6, 0 )
+
+[node name="TweenerLayer2" parent="LevelBase" index="1"]
+tile_data = PoolIntArray( 196617, 11, 0, 196618, 11, 0, 262153, 11, 0, 262154, 11, 0, 327685, 11, 0, 327689, 11, 0, 327690, 11, 0, 327694, 11, 0, 393221, 11, 0, 393225, 11, 0, 393226, 11, 0, 393230, 11, 0, 458757, 11, 0, 458761, 11, 0, 458762, 11, 0, 458766, 11, 0, 524293, 11, 0, 524297, 11, 0, 524298, 11, 0, 524302, 11, 0, 589827, 11, 0, 589829, 11, 0, 589838, 11, 0, 589840, 11, 0, 655363, 11, 0, 655365, 11, 0, 655368, 11, 0, 655371, 11, 0, 655374, 11, 0, 655376, 11, 0, 720899, 11, 0, 720901, 11, 0, 720904, 11, 0, 720907, 11, 0, 720910, 11, 0, 720912, 11, 0, 786435, 11, 0, 786437, 11, 0, 786440, 11, 0, 786443, 11, 0, 786446, 11, 0, 786448, 11, 0 )
 
 [node name="TweenerLayer1" parent="LevelBase" index="2"]
 tile_data = PoolIntArray( 1, 536870913, 0, 17, 1, 0, 131080, 0, 393223, 131081, 536870912, 65540, 131082, 0, 65540, 131083, 536870912, 393223, 196611, 536870916, 0, 196622, 536870917, 0, 262147, 536870915, 0, 262150, 536870912, 393223, 262157, 0, 393223, 262158, 3, 0, 327681, 536870913, 0, 327697, 1, 0, 393224, 0, 393223, 393225, 536870912, 65540, 393226, 0, 65540, 393227, 536870912, 393223, 524291, 536870916, 0, 524302, 4, 0, 589827, 536870915, 0, 589830, 536870912, 65540, 589831, 536870912, 65540, 589832, 536870912, 65540, 589833, 536870912, 65540, 589834, 0, 65540, 589835, 0, 65540, 589836, 0, 65540, 589837, 0, 65540, 589838, 3, 0 )
@@ -99,6 +894,13 @@ __meta__ = {
 [connection signal="body_entered" from="LevelBase/PowerUp" to="LevelBase/PowerUp" method="_on_PowerUp_body_entered" flags=7]
 [connection signal="gauntlets_unlocked" from="LevelBase/PowerUp" to="." method="_on_PowerUp_gauntlets_unlocked" flags=7]
 
+[editable path="LevelBase10"]
+[editable path="LevelBase9"]
+[editable path="LevelBase8"]
+[editable path="LevelBase7"]
+[editable path="LevelBase6"]
+[editable path="LevelBase5"]
+[editable path="LevelBase4"]
 [editable path="LevelBase3"]
 [editable path="LevelBase2"]
 [editable path="LevelBase"]
