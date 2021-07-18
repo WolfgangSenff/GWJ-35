@@ -101,6 +101,22 @@ tracks/3/keys = {
 ]]
 script = ExtResource( 2 )
 
+[node name="TweenerLayer3" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+show_collision = true
+collision_layer = 131072
+collision_mask = 131072
+format = 1
+
+[node name="TweenerLayer2" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+show_collision = true
+collision_layer = 131072
+collision_mask = 131072
+format = 1
+
 [node name="TweenerLayer1" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )

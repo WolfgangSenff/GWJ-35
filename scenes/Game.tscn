@@ -15,21 +15,23 @@
 script = ExtResource( 3 )
 
 [node name="LevelBase3" parent="." instance=ExtResource( 1 )]
+visible = false
 z_index = -3
 z_as_relative = false
 
-[node name="FG" parent="LevelBase3" index="1"]
+[node name="FG" parent="LevelBase3" index="3"]
 z_index = 2
 z_as_relative = false
 
 [node name="LevelBase2" parent="." instance=ExtResource( 1 )]
+visible = false
 z_index = -2
 z_as_relative = false
 
-[node name="TweenerLayer1" parent="LevelBase2" index="0"]
+[node name="TweenerLayer1" parent="LevelBase2" index="2"]
 tile_data = PoolIntArray( 196609, 536870913, 0, 196625, 1, 0, 327683, 4, 0, 327686, 0, 65540, 327687, 0, 65540, 327688, 0, 65540, 327689, 0, 65540, 327690, 536870912, 65540, 327691, 536870912, 65540, 327692, 536870912, 65540, 327693, 536870912, 65540, 327694, 536870916, 0, 393219, 536870914, 0, 393230, 2, 0 )
 
-[node name="FG" parent="LevelBase2" index="1"]
+[node name="FG" parent="LevelBase2" index="3"]
 z_index = 2
 z_as_relative = false
 tile_data = PoolIntArray( 262143, 536870924, 0, 196626, 12, 0 )
@@ -37,15 +39,15 @@ tile_data = PoolIntArray( 262143, 536870924, 0, 196626, 12, 0 )
 [node name="LevelBase" parent="." instance=ExtResource( 1 )]
 z_as_relative = false
 
-[node name="TweenerLayer1" parent="LevelBase" index="0"]
+[node name="TweenerLayer1" parent="LevelBase" index="2"]
 tile_data = PoolIntArray( 1, 536870913, 0, 17, 1, 0, 131080, 0, 393223, 131081, 536870912, 65540, 131082, 0, 65540, 131083, 536870912, 393223, 196611, 536870916, 0, 196622, 536870917, 0, 262147, 536870915, 0, 262150, 536870912, 393223, 262157, 0, 393223, 262158, 3, 0, 327681, 536870913, 0, 327697, 1, 0, 393224, 0, 393223, 393225, 536870912, 65540, 393226, 0, 65540, 393227, 536870912, 393223, 524291, 536870916, 0, 524302, 4, 0, 589827, 536870915, 0, 589830, 536870912, 65540, 589831, 536870912, 65540, 589832, 536870912, 65540, 589833, 536870912, 65540, 589834, 0, 65540, 589835, 0, 65540, 589836, 0, 65540, 589837, 0, 65540, 589838, 3, 0 )
 
-[node name="FG" parent="LevelBase" index="1"]
+[node name="FG" parent="LevelBase" index="3"]
 z_index = 2
 z_as_relative = false
 tile_data = PoolIntArray( 65535, 536870924, 0, 18, 12, 0, 262141, 9, 0, 196627, 9, 0, 393215, 536870924, 0, 327698, 12, 0, 589821, 9, 0, 524307, 9, 0 )
 
-[node name="Sprite" parent="LevelBase" index="2"]
+[node name="Sprite" parent="LevelBase" index="4"]
 self_modulate = Color( 1, 1, 1, 0.294118 )
 position = Vector2( 152, 88 )
 
