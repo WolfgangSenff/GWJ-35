@@ -27,28 +27,9 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/separation = 20
 
-[node name="Credit" type="HSplitContainer" parent="ScrollContainer/VBoxContainer"]
-margin_right = 169.0
-margin_bottom = 14.0
-
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Credit"]
-margin_right = 85.0
-margin_bottom = 14.0
-size_flags_horizontal = 3
-text = "Programming"
-
-[node name="Name" type="Label" parent="ScrollContainer/VBoxContainer/Credit"]
-margin_left = 97.0
-margin_right = 169.0
-margin_bottom = 14.0
-size_flags_horizontal = 3
-text = "BackAt50Ft"
-align = 1
-
 [node name="Credit2" type="HSplitContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 34.0
 margin_right = 169.0
-margin_bottom = 48.0
+margin_bottom = 14.0
 
 [node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Credit2"]
 margin_right = 80.0
@@ -62,6 +43,25 @@ margin_right = 146.0
 margin_bottom = 14.0
 size_flags_horizontal = 6
 text = "D4yz"
+align = 1
+
+[node name="Credit4" type="HSplitContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 169.0
+margin_bottom = 48.0
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Credit4"]
+margin_right = 78.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Music"
+
+[node name="Name" type="Label" parent="ScrollContainer/VBoxContainer/Credit4"]
+margin_left = 90.0
+margin_right = 168.0
+margin_bottom = 14.0
+size_flags_horizontal = 6
+text = "Romeromey"
 align = 1
 
 [node name="Credit3" type="HSplitContainer" parent="ScrollContainer/VBoxContainer"]
@@ -83,23 +83,23 @@ size_flags_horizontal = 6
 text = "Anton V."
 align = 1
 
-[node name="Credit4" type="HSplitContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="Credit" type="HSplitContainer" parent="ScrollContainer/VBoxContainer"]
 margin_top = 102.0
 margin_right = 169.0
 margin_bottom = 116.0
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Credit4"]
-margin_right = 78.0
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Credit"]
+margin_right = 85.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
-text = "Music"
+text = "Programming"
 
-[node name="Name" type="Label" parent="ScrollContainer/VBoxContainer/Credit4"]
-margin_left = 90.0
-margin_right = 168.0
+[node name="Name" type="Label" parent="ScrollContainer/VBoxContainer/Credit"]
+margin_left = 97.0
+margin_right = 169.0
 margin_bottom = 14.0
-size_flags_horizontal = 6
-text = "Romeromey"
+size_flags_horizontal = 3
+text = "BackAt50Ft"
 align = 1
 
 [node name="Tween" type="Tween" parent="."]

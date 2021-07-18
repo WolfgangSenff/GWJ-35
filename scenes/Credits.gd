@@ -1,4 +1,4 @@
-extends Control
+extends BaseThemeableControl
 
 onready var _scroll = $ScrollContainer
 onready var _tween = $Tween
@@ -18,3 +18,6 @@ func _ready() -> void:
         yield(_tween, "tween_all_completed")
         _at_top = not _at_top
         
+func _process(delta) -> void:
+    if Input.is_action_pressed("transfer_forward"):
+        get_tree().change_scene("res://scenes/MainScreen.tscn")
