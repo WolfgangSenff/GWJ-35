@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/Transfer.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 19.6652 )
+extents = Vector2( 286.573, 19.6652 )
 
 [node name="Transfer" type="Area2D"]
 collision_layer = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/LevelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/Sfx.gd" type="Script" id=8]
 [ext_resource path="res://assets/relic_platform.png" type="Texture" id=9]
 [ext_resource path="res://scenes/PowerUp.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Transfer.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "DisappearForward"
@@ -648,7 +649,9 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=[
+"Game",
+]]
 script = ExtResource( 3 )
 
 [node name="LevelBase10" parent="." instance=ExtResource( 1 )]
@@ -890,6 +893,9 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="Transfer" parent="." instance=ExtResource( 11 )]
+position = Vector2( 167.455, 211.901 )
 
 [connection signal="body_entered" from="LevelBase/PowerUp" to="LevelBase/PowerUp" method="_on_PowerUp_body_entered" flags=7]
 [connection signal="gauntlets_unlocked" from="LevelBase/PowerUp" to="." method="_on_PowerUp_gauntlets_unlocked" flags=7]
