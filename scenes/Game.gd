@@ -18,6 +18,7 @@ var _can_teleport = false
 
 func _ready() -> void:
 	_all_levels = get_tree().get_nodes_in_group("Level")
+	_current_layer_index = _all_levels.size() - 1
 	reset_levels()
 	_level_size = _all_levels.size()
 	_forward_sound.volume_db = ControlSettings.sfx_volume
